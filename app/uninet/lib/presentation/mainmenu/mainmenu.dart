@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
 import 'package:uninet/presentation/mainmenu/widgets/postwidget.dart';
@@ -8,8 +8,6 @@ import 'package:uninet/presentation/mainmenu/widgets/scaffoldtitle.dart';
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
 
-// [SliverAppBar]s are typically used in [CustomScrollView.slivers], which in
-// turn can be placed in a [Scaffold.body].
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +75,7 @@ class MakePost extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.add_circle),
+              Icon(CupertinoIcons.add_circled_solid),
               kwidth10,
               Text(
                 'make a post',

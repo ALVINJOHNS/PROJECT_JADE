@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/presentation/home/home.dart';
 import 'package:uninet/presentation/mainmenu/mainmenu.dart';
 import 'package:uninet/presentation/auth/signup/signupscreen.dart';
 
@@ -52,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => MainMenuScreen(),
+                      builder: (context) => HomeScreen(),
                     ));
                   },
                   style: ButtonStyle(
@@ -96,7 +98,7 @@ class _IconAndFieldEmail extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(
-          Icons.email_outlined,
+          CupertinoIcons.mail,
           color: kblack.withOpacity(0.6),
         ),
         kwidth20,
@@ -128,7 +130,7 @@ class _IconAndFieldPassword extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(
-          Icons.lock_outline,
+          CupertinoIcons.lock,
           color: kblack.withOpacity(0.6),
         ),
         kwidth20,

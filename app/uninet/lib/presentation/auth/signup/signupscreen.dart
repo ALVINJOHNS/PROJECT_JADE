@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
@@ -35,12 +36,12 @@ class SignUpScreen extends StatelessWidget {
               ),
               kheight20,
               _IconAndFieldEmail(
-                  size: size, text: 'Email ID', iconData: Icons.email_outlined),
+                  size: size, text: 'Email ID', iconData: CupertinoIcons.mail),
               kheight10,
               _IconAndFieldEmail(
                 size: size,
                 text: 'Name',
-                iconData: Icons.account_box_outlined,
+                iconData: CupertinoIcons.person,
               ),
               kheight10,
               _IconAndFieldPassword(size: size),
@@ -125,7 +126,7 @@ class _IconAndFieldPassword extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(
-          Icons.lock_outline,
+          CupertinoIcons.lock,
           color: kblack.withOpacity(0.6),
         ),
         kwidth20,
