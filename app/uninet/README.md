@@ -1,4 +1,4 @@
-# uninet
+# UniNet
 
 A new Flutter project.
 
