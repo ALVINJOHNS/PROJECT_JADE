@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
-import 'package:uninet/presentation/login/loginscreen.dart';
+import 'package:uninet/presentation/auth/login/loginscreen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

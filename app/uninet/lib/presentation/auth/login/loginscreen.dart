@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
 import 'package:uninet/presentation/mainmenu/mainmenu.dart';
-import 'package:uninet/presentation/signup/signupscreen.dart';
+import 'package:uninet/presentation/auth/signup/signupscreen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -67,6 +67,7 @@ class LoginScreen extends StatelessWidget {
                   const Text('New to UniNet ?'),
                   TextButton(
                       onPressed: () {
+                        FocusNode().dispose();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const SignUpScreen(),
                         ));
