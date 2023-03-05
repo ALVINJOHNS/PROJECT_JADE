@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/domain/login/login.dart';
 import 'package:uninet/presentation/home/home.dart';
 import 'package:uninet/presentation/auth/signup/signupscreen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+  LoginScreen({super.key});
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -36,9 +38,15 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               kheight20,
-              _IconAndFieldEmail(size: size),
+              _IconAndFieldEmail(
+                size: size,
+                controller: emailController,
+              ),
               kheight10,
-              _IconAndFieldPassword(size: size),
+              _IconAndFieldPassword(
+                size: size,
+                controller: passwordController,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -54,9 +62,22 @@ class LoginScreen extends StatelessWidget {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ));
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                        (route) => false);
+                    return;
+                    if (emailController.text == '') {
+                      return;
+                    }
+                    if (passwordController.text == '') {
+                      return;
+                    }
+                    loginUser(
+                        email: emailController.text,
+                        password: passwordController.text,
+                        context: context);
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(primarycolor),
@@ -72,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         FocusNode().dispose();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
+                          builder: (context) => SignUpScreen(),
                         ));
                       },
                       child: const Text('Sign Up'))
@@ -89,10 +110,11 @@ class LoginScreen extends StatelessWidget {
 class _IconAndFieldEmail extends StatelessWidget {
   const _IconAndFieldEmail({
     required this.size,
+    required this.controller,
   });
 
   final Size size;
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -106,6 +128,7 @@ class _IconAndFieldEmail extends StatelessWidget {
         SizedBox(
           width: size.width * 0.7,
           child: TextFormField(
+            controller: controller,
             cursorColor: kblack,
             decoration: const InputDecoration(
               hintText: 'Email ID',
@@ -121,10 +144,11 @@ class _IconAndFieldEmail extends StatelessWidget {
 class _IconAndFieldPassword extends StatelessWidget {
   _IconAndFieldPassword({
     required this.size,
+    required this.controller,
   });
   final ValueNotifier<bool> obscureTextNotifier = ValueNotifier(true);
   final Size size;
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -141,6 +165,7 @@ class _IconAndFieldPassword extends StatelessWidget {
               valueListenable: obscureTextNotifier,
               builder: (context, newValue, _) {
                 return TextFormField(
+                  controller: controller,
                   cursorColor: kblack,
                   obscureText: newValue,
                   decoration: InputDecoration(

@@ -5,8 +5,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uninet/core/colors/colors.dart';
 
 class PeopleResult extends StatelessWidget {
-  const PeopleResult({super.key});
-
+  const PeopleResult({super.key, required this.query});
+  final String query;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

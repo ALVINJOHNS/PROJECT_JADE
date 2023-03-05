@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:uninet/core/constants/constants.dart';
 
 class ProjectsResult extends StatelessWidget {
-  const ProjectsResult({super.key});
-
+  const ProjectsResult({super.key, required this.query});
+  final String query;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
