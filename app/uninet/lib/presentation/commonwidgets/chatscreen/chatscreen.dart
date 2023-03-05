@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -32,7 +31,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    _loadMessages();
+    // _loadMessages();
   }
 
   @override
@@ -240,14 +239,14 @@ class _ChatScreenState extends State<ChatScreen> {
     _addMessage(textMessage);
   }
 
-  void _loadMessages() async {
-    final response = await rootBundle.loadString('assets/messages.json');
-    final messages = (jsonDecode(response) as List)
-        .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
-        .toList();
+  // void _loadMessages() async {
+  //   final response = await rootBundle.loadString('assets/messages.json');
+  //   final messages = (jsonDecode(response) as List)
+  //       .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
+  //       .toList();
 
-    setState(() {
-      _messages = messages;
-    });
-  }
+  //   setState(() {
+  //     _messages = messages;
+  //   });
+  // }
 }

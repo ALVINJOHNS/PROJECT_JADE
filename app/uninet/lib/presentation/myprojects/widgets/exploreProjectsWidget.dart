@@ -13,7 +13,7 @@ class ExploreProjectsWidget extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 42, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 10),
               child: Divider(
                 thickness: 2,
               ),
@@ -25,7 +25,7 @@ class ExploreProjectsWidget extends StatelessWidget {
                   color: Color.fromARGB(255, 94, 165, 158),
                 )),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

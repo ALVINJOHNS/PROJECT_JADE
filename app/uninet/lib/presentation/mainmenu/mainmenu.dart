@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/presentation/chats/chatsscreen.dart';
 import 'package:uninet/presentation/mainmenu/widgets/makeapostscreen.dart';
 import 'package:uninet/presentation/mainmenu/widgets/postwidget.dart';
 import 'package:uninet/presentation/mainmenu/widgets/scaffoldtitle.dart';
@@ -26,9 +27,16 @@ class MainMenuScreen extends StatelessWidget {
                 kwidth10,
                 ScaffoldTitle(),
                 Spacer(),
-                Icon(
-                  Icons.message_outlined,
-                  size: 20,
+                GestureDetector(
+                  child: Icon(
+                    CupertinoIcons.bubble_left_bubble_right,
+                    size: 20,
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ChatsScreen(),
+                    ));
+                  },
                 ),
                 kwidth10,
               ],
