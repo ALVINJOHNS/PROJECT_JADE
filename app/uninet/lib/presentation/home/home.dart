@@ -5,6 +5,7 @@ import 'package:uninet/presentation/groups/groupsscreen.dart';
 import 'package:uninet/presentation/groups/subscreens/viewgroupscreen.dart';
 import 'package:uninet/presentation/mainmenu/mainmenu.dart';
 import 'package:uninet/presentation/myprojects/myprojects.dart';
+import 'package:uninet/presentation/profile/myprofile/myprofile.dart';
 import 'package:uninet/presentation/profile/profile.dart';
 import 'package:uninet/presentation/search/seachscreen.dart';
 
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 MyProjectsScreen(),
                 SearchScreen(),
                 GroupsScreen(),
-                ProfileScreen(),
+                MyProfileScreen(),
               ],
             );
           }),

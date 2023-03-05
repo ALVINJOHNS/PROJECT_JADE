@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_chat_ui: ^1.6.6
+  flutter_sequence_animation: ^4.0.0
   image_picker: ^0.8.6+4
   mime: ^1.0.4
   open_filex: ^4.3.2
