@@ -22,7 +22,6 @@ UniNet is designed to help users showcase their skills and collaborate with othe
 <img align="left" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/groups.png"/>
 <img align="centre" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/home.png"/>
 <img align="justify" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/projects.png"/>
-<img align="justify" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/vcec.png"/>
 
 ## Timeline
 
