@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/imageupload.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
@@ -30,6 +31,9 @@ class EditProfileScreen extends StatelessWidget {
                 ),
                 Center(
                   child: GestureDetector(
+                    onTap: () {
+                      getimage();
+                    },
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
