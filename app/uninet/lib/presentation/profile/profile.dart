@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/imageupload.dart';
 
 import 'package:uninet/presentation/profile/posts.dart';
 import 'package:uninet/presentation/profile/updates.dart';
@@ -22,7 +23,8 @@ class ProfileScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                },
                 child: CircleAvatar(
                   backgroundColor: kwhite,
                   radius: 60,
