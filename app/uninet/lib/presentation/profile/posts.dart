@@ -1,11 +1,15 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
+import 'package:uninet/presentation/mainmenu/widgets/postwidget.dart';
 
 class PostsTab extends StatelessWidget {
   const PostsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SingleChildScrollView(
+      child: Column(
+        children: List.generate(10, (index) => PostWidget()),
+      ),
+    );
   }
 }

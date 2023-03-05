@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:uninet/core/colors/colors.dart';
+import 'package:uninet/core/constants/constants.dart';
+
 import 'package:uninet/presentation/profile/posts.dart';
 import 'package:uninet/presentation/profile/updates.dart';
 
@@ -9,105 +13,110 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(CupertinoIcons.arrow_left),
-          // backgroundColor: Color.fromARGB(20, 131, 201, 194),
-          // hoverColor: Color.fromARGB(20, 131, 201, 194),
-          //hoverElevation: 0,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            GestureDetector(
-              onTap: () {
-                print("djhkfvsgbd");
-              },
-              child: CircleAvatar(
-                radius: 60,
-                backgroundImage: NetworkImage(
-                    "https://img.people-group.com/images/Leadership/anupam-mittal.jpg"),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "Alvin Johns",
-                  style: TextStyle(
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          kheight10,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),
-                ),
-                Text(
-                  "Flutter Dev",
-                  style: TextStyle(fontSize: 25),
-
-                )
-              ],
-            )
-          ],
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 35),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              GestureDetector(
+                onTap: () {},
+                child: CircleAvatar(
+                  backgroundColor: kwhite,
+                  radius: 60,
+                  backgroundImage: NetworkImage(
+                      "https://img.people-group.com/images/Leadership/anupam-mittal.jpg"),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    "Cheif Flutter developer at ",
 
-                  ),
-                  Text(
-                    "PRODDEC CEC",
+                    "Alvin Johns",
                     style: TextStyle(
 
                       fontWeight: FontWeight.bold,
+                      fontSize: 30,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: const [
                   Text(
-                    "intern at ",
-
-                  ),
-                  Text(
-                    "Tinkerhub",
+                    "Flutter Dev",
                     style: TextStyle(
-
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
+
                     ),
-                  ),
+                  )
                 ],
-              ),
-              SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Connect",
 
+              )
 
-                    ),
-                  )),
-              SizedBox(
-                  width: double.infinity,
-                  child: TextButton(onPressed: () {}, child: Text("Message"))),
             ],
           ),
-        ),
-        Expanded(child: ProfileTabView()),
-      ],
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 35),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: const [
+                    Text(
+                      "Cheif Flutter developer at ",
+                    ),
+                    Text(
+                      "PRODDEC CEC",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Text(
+                      "intern at ",
+                    ),
+                    Text(
+                      "Tinkerhub",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Connect",
+                      ),
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(primarycolor)),
+                    )),
+                SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Message",
+                        style: TextStyle(color: primarycolor),
+                      ),
+                    )),
+              ],
+            ),
+          ),
+          Expanded(child: ProfileTabView()),
+        ],
+      ),
     );
   }
 }
@@ -135,7 +144,7 @@ class _ProfileTabViewState extends State<ProfileTabView>
     return Column(
       children: [
         SizedBox(
-          height: 50,
+          height: 40,
           width: double.infinity,
           child: TabBar(
             tabs: [

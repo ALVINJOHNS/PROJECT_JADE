@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
@@ -13,7 +14,7 @@ class PostWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: size.width * 0.8,
+      width: size.width,
       decoration: BoxDecoration(
         color: kwhite,
       ),
@@ -35,6 +36,7 @@ class PostWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CircleAvatar(
+                        backgroundColor: kwhite,
                         backgroundImage: NetworkImage(
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk8KxHdzexaVGNf3QSRti7sMqxOjf2dy-AhSpB7j7FnDpJhpzijLtvxaxrDAPeqnRWEhn3eNFT748&usqp=CAU&ec=48600113'),
                         radius: 23,
@@ -56,7 +58,7 @@ class PostWidget extends StatelessWidget {
                       ),
                       Spacer(),
                       GestureDetector(
-                        child: Icon(Icons.more_vert_outlined),
+                        child: Icon(CupertinoIcons.ellipsis_vertical),
                         onTap: () => viewOptions(context),
                       ),
                       kwidth10,
