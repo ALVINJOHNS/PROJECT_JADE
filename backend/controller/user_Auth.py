@@ -29,9 +29,9 @@ def userAddImage(uid):
         db_path = f"storage/users_profile_photo/{new_filename}.{ext}"
         file.save(f"storage/users_profile_photo/{new_filename}.{ext}")
         
-        cursor = mysql.connection.cursor()
+        cursor = mysql.cursor()
         cursor.execute("UPDATE user_info SET image_path = %s WHERE id= %s ",(db_path,uid))
-        mysql.connection.commit()
+        mysql.commit()
         
         d["message"] = "File uploaded successfully"
         d["path"] = db_path
@@ -48,7 +48,7 @@ def getUserProfileImage(uid):
     
     #if request.method == 'GET':
         
-    cursor = mysql.connection.cursor()
+    cursor = mysql.cursor()
     cursor.execute("SELECT image_path FROM user_info WHERE id = %s",[uid])
     path = cursor.fetchone()
     root_dir = os.path.dirname(app.instance_path)            
@@ -56,69 +56,72 @@ def getUserProfileImage(uid):
     # else:
     #     return 'Method not allowed'
 
-@userAuth_api.route("/login_user",methods=['GET', 'POST'])
-def login():
-    d = {}
+@userAuth_api.route("/login_user/<email>/<password>", methods=['POST'])
+def login(email,password):
     from app import mysql
     if request.method == 'POST':
-        email = request.json['email']
-        password = request.json['password']
+        # email = request.json['email']
+        # password = request.json['password']
         
-        cursor = mysql.connection.cursor()
+        cursor = mysql.cursor()
         cursor.execute('SELECT password_hash, email FROM user_info WHERE email = %s limit 0,1', [email])
         login = cursor.fetchone()
         
-        
         if login:          
-            if check_password_hash(login["password_hash"],password): 
+            if check_password_hash(login[0], password): 
                 cursor.execute('SELECT id, username, bio, headline, image_path FROM user_info WHERE email = %s', [email])
                 account = cursor.fetchone()
                 
-                uniqueIDprojects = str(account["id"]) + "projects"
+                # Create unique IDs for the user's posts and updates
+                uniqueIDposts = str(account[0]) + "posts"
+                uniqueIDUpdates = str(account[0]) + 'updates'
                 
-                uniqueIDUpdates = str(account["id"]) + 'updates'
+                # Create a dictionary with the user's account information
+                d = {
+                    "id": account[0],
+                    "username": account[1],
+                    "bio": account[2],
+                    "headline": account[3],
+                    "image_path": account[4],
+                    "projects": uniqueIDposts,
+                    "updates": uniqueIDUpdates
+                }
                 
-                d["id"] = account["id"]
-                d["username"] = account["username"]
-                d["bio"] = account["bio"]
-                d["headline"] = account["headline"]
-                d["image_path"] = account["image_path"]   
-                d["projects"] = uniqueIDprojects
-                d["updates"] = uniqueIDUpdates
-                # account found
-                #d['status'] = 1
-                
+                # Return the account information as a JSON response
                 return jsonify(d)
             else:
                 return "Error password"
         else:
             # account not exist
-            d['status'] = 0
+            d = {"status": 0}
             return jsonify(d)
 
             
-@userAuth_api.route('/sendOtp')
-def emailOtp():
-    email_id = request.json['email']
+@userAuth_api.route('/sendOtp/<email_id>')
+def emailOtp(email_id):
+    #email_id = request.json['email']
     
     otp = eOTP.send_email(email_id)
     
-    return jsonify(otp)
+    d = {}
+    
+    d["Otp"] = otp
+    return jsonify(d)
     
 
-@userAuth_api.route('/register_user', methods=['GET', 'POST'])
-def register():
+@userAuth_api.route('/register_user/<email>/<username>/<password>/<bio>/<headline>', methods=['GET', 'POST'])
+def register(email,username,password,bio,headline):
     d = {}
     from app import mysql
     if request.method == 'POST':
         
-        email = request.json['email']
-        username = request.json['username']
-        password = request.json['password']
-        bio = request.json['bio']
-        headline = request.json['headline']
+        # email = request.json['email']
+        # username = request.json['username']
+        # password = request.json['password']
+        # bio = request.json['bio']
+        # headline = request.json['headline']
         
-        cursor = mysql.connection.cursor()
+        cursor = mysql.cursor()
         cursor.execute('SELECT * FROM user_info WHERE email = %s', [email])
         account = cursor.fetchone()
         
@@ -135,46 +138,63 @@ def register():
             password_hash = generate_password_hash(password)
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
             cursor.execute('''INSERT INTO user_info(username,email,password_hash,bio,headline) VALUES (%s, %s, %s, %s, %s)''', (username,  email, password_hash, bio, headline))
-            mysql.connection.commit()
+            mysql.commit()
             
             cursor.execute('SELECT id FROM user_info WHERE email = %s', [email])
             account1 = cursor.fetchone()        
             
-            print(account1["id"])
-            uniqueIDprojects = str(account1["id"]) + "projects"
-            print(uniqueIDprojects)
-            uniqueIDUpdates = str(account1["id"]) + 'updates'
+            print(account1[0])
+            uniqueIDposts = str(account1[0]) + "posts"
+            print(uniqueIDposts)
+            uniqueIDUpdates = str(account1[0]) + 'updates'
+            
+            uniqueIDProjects = str(account1[0]) + 'projects'
             
             
-            cursor.execute('''CREATE TABLE {projects} (
+            cursor.execute('''CREATE TABLE {posts} (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username varchar(255),
+    userid INT NOT NULL,
+    postid INT ,
     image_path varchar(255),
     headline varchar(255),
     project_image_path varchar(255),
     project_description varchar(255),
-    likes varchar(255)
-);'''.format(projects = uniqueIDprojects))
-            mysql.connection.commit()
+    likes INT
+);'''.format(posts = uniqueIDposts))
+            mysql.commit()
             
             cursor.execute('''CREATE TABLE {updates} (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username varchar(255),
+    userid INT NOT NULL,
+    updatesid INT,
     image_path varchar(255),
     headline varchar(255),
     project_description varchar(255)
 );'''.format(updates = uniqueIDUpdates))
-            mysql.connection.commit()
+            mysql.commit()
+            
+            cursor.execute('''CREATE TABLE {projects} (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    short_description varchar(255),
+    description varchar(255),
+    project_id INT NOT NULL
+);'''.format(projects = uniqueIDProjects))
+            mysql.commit()
             
             
             msg = 'You have successfully registered!'
             
             d['email'] = email
+            d['id'] = account1[0]
             d['username'] = username
             d['bio'] = bio
             d['headline'] = headline
             d['updates'] = uniqueIDUpdates
-            d['projects'] = uniqueIDprojects
+            d['posts'] = uniqueIDposts
+            d['projects'] = uniqueIDProjects
         
         d['msg'] = msg
         return jsonify(d)
