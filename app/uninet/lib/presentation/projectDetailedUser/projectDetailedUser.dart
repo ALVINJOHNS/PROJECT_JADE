@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uninet/presentation/projectDetailedExplore/widgets/currentMembersWidget.dart';
 import 'package:uninet/presentation/projectDetailedExplore/widgets/vacanciesDropdownWidget.dart';
+import 'package:uninet/presentation/projectDetailedUser/widgets/ToDODropdownWidget.dart';
+import 'package:uninet/presentation/projectDetailedUser/widgets/recruitmentRequestWidget.dart';
 
 class ProjectDetailedUserScreen extends StatelessWidget {
   const ProjectDetailedUserScreen({super.key});
@@ -96,13 +98,38 @@ class ProjectDetailedUserScreen extends StatelessWidget {
                     thickness: 2,
                   ),
                 ),
-                Text("Vacancies",
+                Text("To-do List",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                       color: Color.fromARGB(255, 94, 165, 158),
                     )),
-                VacanciesDropdownWidget(),
+                SizedBox(
+                  height: 15,
+                ),
+                ToDoDropdownWidget(),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(right: 30.0, top: 20, bottom: 20),
+                  child: Divider(
+                    thickness: 2,
+                  ),
+                ),
+                Text(
+                  "Request for recruitment",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Color.fromARGB(255, 94, 165, 158),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                RecruitmentRequestWidget(),
+                SizedBox(
+                  height: 15,
+                ),
               ],
             ),
           ),
