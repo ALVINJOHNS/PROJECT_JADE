@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
+import 'package:uninet/core/constants/constants.dart';
 import 'package:uninet/presentation/projectDetailedExplore/projectDetailedExplore.dart';
 
 class ExploreProjectsButtonWidget extends StatelessWidget {
@@ -9,7 +10,7 @@ class ExploreProjectsButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 50, right: 30, top: 10, bottom: 10),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
@@ -29,6 +30,7 @@ class ExploreProjectsButtonWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                kheight10,
                 Text(
                   'Ignite',
                   style: TextStyle(
@@ -47,6 +49,7 @@ class ExploreProjectsButtonWidget extends StatelessWidget {
                     ),
                   ),
                 ),
+                kheight10,
               ],
             ),
             Icon(

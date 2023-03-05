@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
 import 'package:uninet/presentation/home/home.dart';
-import 'package:uninet/presentation/mainmenu/mainmenu.dart';
 import 'package:uninet/presentation/auth/signup/signupscreen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -16,11 +15,13 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding:
-              const EdgeInsets.only(left: 25, right: 25, top: 100, bottom: 25),
+              const EdgeInsets.only(left: 25, right: 25, top: 70, bottom: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
+                width: size.width,
+                height: size.width * 0.6,
                 child: Image.asset('assets/images/loginimg.png'),
               ),
               kheight20,
