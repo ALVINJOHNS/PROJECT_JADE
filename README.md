@@ -19,6 +19,7 @@ UniNet is designed to help users showcase their skills and collaborate with othe
 
 ## Screenshots
 
+![image](https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/groups.png)
 
 ## Timeline
 
