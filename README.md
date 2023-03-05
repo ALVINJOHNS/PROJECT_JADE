@@ -19,7 +19,10 @@ UniNet is designed to help users showcase their skills and collaborate with othe
 
 ## Screenshots
 
-![image](https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/groups.png)
+<img align="left" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/groups.png"/>
+<img align="centre" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/home.png"/>
+<img align="justify" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/projects.png"/>
+<img align="justify" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/vcec.png"/>
 
 ## Timeline
 
@@ -28,3 +31,6 @@ UniNet is designed to help users showcase their skills and collaborate with othe
 - Day 2 (5th March) was mostly spent on connecting the backend to frontend.
 
 ## Project Status: Working Features and Known Issues
+
+- Authentication and search works
+- Other features are implemented in backend but wasn't connected to UI , due to time constraint and complexity
