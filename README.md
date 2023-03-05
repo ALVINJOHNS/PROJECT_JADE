@@ -23,7 +23,11 @@ UniNet is designed to help users showcase their skills and collaborate with othe
 <img align="centre" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/home.png"/>
 <img align="justify" width="175" height="400" src="https://github.com/ALVINJOHNS/UniNet/blob/main/Assets/projects.png"/>
 
+## Demo Video
+https://drive.google.com/file/d/1iYs73O77_dXfO_DX58R151-KAal5Rdr8/view?usp=drivesdk
+
 ## Timeline
+
 
 - The Repository was created on 3rd March 2023 , initially the repository only consisted of just a readme file. The app was created in 2 days.
 - By the end of Day 1 (4th March) , most of the UI was completed and merged into the repository .The backend part was also fairly completed.
