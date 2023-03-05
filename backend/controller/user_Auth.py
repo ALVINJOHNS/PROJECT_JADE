@@ -180,7 +180,8 @@ def register(email,username,password,bio,headline):
     name varchar(255),
     short_description varchar(255),
     description varchar(255),
-    project_id INT NOT NULL
+    project_id INT NOT NULL,
+    user_id INT NOT NULL
 );'''.format(projects = uniqueIDProjects))
             mysql.commit()
             
