@@ -5,8 +5,8 @@ import 'package:uninet/presentation/search/widgets/peopleresult.dart';
 import 'package:uninet/presentation/search/widgets/projectsresult.dart';
 
 class SearchResultPart extends StatefulWidget {
-  const SearchResultPart({super.key});
-
+  const SearchResultPart({super.key, required this.query});
+  final String query;
   @override
   State<SearchResultPart> createState() => _SearchResultPartState();
 }
@@ -16,7 +16,7 @@ class _SearchResultPartState extends State<SearchResultPart>
   late TabController tabController;
   @override
   void initState() {
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
 
@@ -31,7 +31,7 @@ class _SearchResultPartState extends State<SearchResultPart>
             tabs: [
               TabText(text: 'Projects'),
               TabText(text: 'People'),
-              TabText(text: 'Groups'),
+              // TabText(text: 'Groups'),
             ],
           ),
         ),
@@ -39,9 +39,13 @@ class _SearchResultPartState extends State<SearchResultPart>
           child: TabBarView(
             controller: tabController,
             children: [
-              ProjectsResult(),
-              PeopleResult(),
-              GroupResult(),
+              ProjectsResult(
+                query: widget.query,
+              ),
+              PeopleResult(
+                query: widget.query,
+              ),
+              // GroupResult(),
             ],
           ),
         )

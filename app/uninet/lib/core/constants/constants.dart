@@ -12,3 +12,4 @@ const kwidth20 = SizedBox(
 const kwidth10 = SizedBox(
   width: 10,
 );
+late final Uid;

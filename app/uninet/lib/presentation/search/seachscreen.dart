@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/domain/search/search.dart';
+import 'package:uninet/presentation/search/widgets/recentspart.dart';
 
 import 'package:uninet/presentation/search/widgets/searchtabpart.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
-
+  SearchScreen({super.key});
+  final searchController = TextEditingController();
+  final ValueNotifier<String> searchQueryNotifier = ValueNotifier('');
+  final ValueNotifier<List> userSearchNotifier = ValueNotifier([]);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,6 +39,13 @@ class SearchScreen extends StatelessWidget {
                 height: 35,
                 child: Center(
                   child: TextFormField(
+                    controller: searchController,
+                    onChanged: (value) {
+                      // userSearchNotifier.value =
+                      getUserSearchResult(query: value);
+                      searchQueryNotifier.value = value;
+                      searchQueryNotifier.notifyListeners();
+                    },
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -47,9 +58,21 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: SearchResultPart(),
-            )
+            ValueListenableBuilder(
+                valueListenable: searchQueryNotifier,
+                builder: (context, string, _) {
+                  if (string == '') {
+                    return Expanded(
+                      child: RecentPart(),
+                    );
+                  } else {
+                    return Expanded(
+                      child: SearchResultPart(
+                        query: string,
+                      ),
+                    );
+                  }
+                })
           ],
         ),
       ),
