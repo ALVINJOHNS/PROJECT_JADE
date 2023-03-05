@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
 
@@ -19,6 +20,7 @@ class ProfileScreen extends StatelessWidget {
           kheight10,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
             children: [
               GestureDetector(
                 onTap: () {},
@@ -33,8 +35,10 @@ class ProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
+
                     "Alvin Johns",
                     style: TextStyle(
+
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -43,10 +47,14 @@ class ProfileScreen extends StatelessWidget {
                     "Flutter Dev",
                     style: TextStyle(
                       fontSize: 25,
+                      fontWeight: FontWeight.bold,
+
                     ),
                   )
                 ],
+
               )
+
             ],
           ),
           SizedBox(
