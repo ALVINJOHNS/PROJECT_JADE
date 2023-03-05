@@ -4,11 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/domain/signup/signup.dart';
 import 'package:uninet/presentation/auth/login/loginscreen.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
-
+  SignUpScreen({super.key});
+  final emailController = TextEditingController();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -36,21 +39,47 @@ class SignUpScreen extends StatelessWidget {
               ),
               kheight20,
               _IconAndFieldEmail(
-                  size: size, text: 'Email ID', iconData: CupertinoIcons.mail),
+                size: size,
+                text: 'Email ID',
+                iconData: CupertinoIcons.mail,
+                controller: emailController,
+              ),
               kheight10,
               _IconAndFieldEmail(
                 size: size,
                 text: 'Name',
                 iconData: CupertinoIcons.person,
+                controller: usernameController,
               ),
               kheight10,
-              _IconAndFieldPassword(size: size),
+              _IconAndFieldPassword(
+                size: size,
+                controller: passwordController,
+              ),
               kheight20,
               SizedBox(
                 width: size.width,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (passwordController.text == '') {
+                      log('1');
+                      return;
+                    }
+                    if (usernameController.text == '') {
+                      log('2');
+                      return;
+                    }
+                    if (emailController.text == '') {
+                      log('3');
+                      return;
+                    }
+                    signupuser(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        username: usernameController.text.trim(),
+                        context: context);
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(primarycolor),
                   ),
@@ -64,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
+                          builder: (context) => LoginScreen(),
                         ));
                       },
                       child: const Text('Sign In'))
@@ -83,11 +112,12 @@ class _IconAndFieldEmail extends StatelessWidget {
     required this.size,
     required this.text,
     required this.iconData,
+    required this.controller,
   });
   final String text;
   final IconData iconData;
   final Size size;
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -101,6 +131,7 @@ class _IconAndFieldEmail extends StatelessWidget {
         SizedBox(
           width: size.width * 0.7,
           child: TextFormField(
+            controller: controller,
             cursorColor: kblack,
             decoration: InputDecoration(
               hintText: text,
@@ -116,10 +147,11 @@ class _IconAndFieldEmail extends StatelessWidget {
 class _IconAndFieldPassword extends StatelessWidget {
   _IconAndFieldPassword({
     required this.size,
+    required this.controller,
   });
   final ValueNotifier<bool> obscureTextNotifier = ValueNotifier(true);
   final Size size;
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -136,6 +168,7 @@ class _IconAndFieldPassword extends StatelessWidget {
               valueListenable: obscureTextNotifier,
               builder: (context, newValue, _) {
                 return TextFormField(
+                  controller: controller,
                   cursorColor: kblack,
                   obscureText: newValue,
                   decoration: InputDecoration(
