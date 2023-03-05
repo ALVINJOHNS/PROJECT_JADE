@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uninet/presentation/auth/login/loginscreen.dart';
+import 'package:uninet/presentation/myprojects/myprojects.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Jetbrainmono',
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const MyProjectsScreen(),
     );
   }
 }
