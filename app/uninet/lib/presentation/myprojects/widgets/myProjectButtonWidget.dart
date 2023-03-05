@@ -36,7 +36,7 @@ class MyProjectButtonWidget extends StatelessWidget {
                 //   radius: 9,
                 // ),
               ),
-              Text('title1',
+              Text('V-CEC',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,

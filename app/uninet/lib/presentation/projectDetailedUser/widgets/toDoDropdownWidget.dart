@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:uninet/presentation/projectDetailedExplore/widgets/vacanciesDropdownTileWidget.dart';
+import 'package:uninet/presentation/projectDetailedUser/widgets/toDoDropdownTileWidget.dart';
 
-class VacanciesDropdownWidget extends StatelessWidget {
-  const VacanciesDropdownWidget({super.key});
+class ToDoDropdownWidget extends StatelessWidget {
+  const ToDoDropdownWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class VacanciesDropdownWidget extends StatelessWidget {
             border: Border.all(color: Color.fromARGB(255, 0, 0, 0))),
         child: Column(
           children: List.generate(3, (index) {
-            return VacanciesDropdownTileWidget();
+            return ToDoDropdownTileWidget();
           }),
         ),
       ),
