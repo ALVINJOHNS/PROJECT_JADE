@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/presentation/auth/login/loginscreen.dart';
+
+import 'package:uninet/presentation/home/home.dart';
+
 import 'package:uninet/presentation/myprojects/myprojects.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +19,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Jetbrainmono',
-        primarySwatch: Colors.blue,
+        primaryColor: kblack,
       ),
-      home: const MyProjectsScreen(),
+
+      home: HomeScreen(),
+
+
     );
   }
 }
