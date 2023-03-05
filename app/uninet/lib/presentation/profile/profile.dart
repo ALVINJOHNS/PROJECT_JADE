@@ -38,6 +38,7 @@ class ProfileScreen extends StatelessWidget {
                 Text(
                   "Alvin Johns",
                   style: TextStyle(
+
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),
@@ -45,6 +46,7 @@ class ProfileScreen extends StatelessWidget {
                 Text(
                   "Flutter Dev",
                   style: TextStyle(fontSize: 25),
+
                 )
               ],
             )
@@ -62,10 +64,12 @@ class ProfileScreen extends StatelessWidget {
                 children: const [
                   Text(
                     "Cheif Flutter developer at ",
+
                   ),
                   Text(
                     "PRODDEC CEC",
                     style: TextStyle(
+
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -75,10 +79,12 @@ class ProfileScreen extends StatelessWidget {
                 children: const [
                   Text(
                     "intern at ",
+
                   ),
                   Text(
                     "Tinkerhub",
                     style: TextStyle(
+
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -90,6 +96,8 @@ class ProfileScreen extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "Connect",
+
+
                     ),
                   )),
               SizedBox(
