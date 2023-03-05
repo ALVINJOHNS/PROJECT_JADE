@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/imageupload.dart';
 
 import 'package:uninet/presentation/profile/posts.dart';
 import 'package:uninet/presentation/profile/updates.dart';
@@ -20,10 +21,10 @@ class ProfileScreen extends StatelessWidget {
           kheight10,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                },
                 child: CircleAvatar(
                   backgroundColor: kwhite,
                   radius: 60,
@@ -35,10 +36,8 @@ class ProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-
                     "Alvin Johns",
                     style: TextStyle(
-
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -48,13 +47,10 @@ class ProfileScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-
                     ),
                   )
                 ],
-
               )
-
             ],
           ),
           SizedBox(
