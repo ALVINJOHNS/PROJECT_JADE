@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Jetbrainmono',
         primaryColor: kblack,
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

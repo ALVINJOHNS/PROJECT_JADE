@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uninet/core/colors/colors.dart';
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/presentation/mainmenu/widgets/makeapostscreen.dart';
 import 'package:uninet/presentation/mainmenu/widgets/postwidget.dart';
 import 'package:uninet/presentation/mainmenu/widgets/scaffoldtitle.dart';
 
@@ -64,29 +65,36 @@ class MakePost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 0,
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(CupertinoIcons.add_circled_solid),
-              kwidth10,
-              Text(
-                'make a post',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17,
-                ),
-              )
-            ],
+      child: GestureDetector(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          elevation: 0,
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(CupertinoIcons.add_circled_solid),
+                kwidth10,
+                Text(
+                  'make a post',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => MakeAPostScreen(),
+          ));
+        },
       ),
     );
   }

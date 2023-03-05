@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:uninet/core/constants/constants.dart';
+import 'package:uninet/presentation/groups/subscreens/viewgroupscreen.dart';
 
 class GroupsScreen extends StatelessWidget {
   const GroupsScreen({super.key});
@@ -59,19 +60,26 @@ class _GroupWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
-        children: [
-          SizedBox(
-            width: 130,
-            height: 130,
-            child: Image(
-              image: NetworkImage(
-                "https://img.people-group.com/images/Leadership/anupam-mittal.jpg",
+      child: GestureDetector(
+        child: Column(
+          children: [
+            SizedBox(
+              width: 130,
+              height: 130,
+              child: Image(
+                image: NetworkImage(
+                  "https://img.people-group.com/images/Leadership/anupam-mittal.jpg",
+                ),
               ),
             ),
-          ),
-          Text('javascript \n communtiy')
-        ],
+            Text('javascript \n communtiy')
+          ],
+        ),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ViewGroupScreen(),
+          ));
+        },
       ),
     );
   }
