@@ -42,7 +42,7 @@ class ProjectDetailedExploreScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text("V-CEC",
+                    Text("IGNITE",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -103,6 +103,9 @@ class ProjectDetailedExploreScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 94, 165, 158),
                     )),
                 VacanciesDropdownWidget(),
+                SizedBox(
+                  height: 15,
+                ),
               ],
             ),
           ),
