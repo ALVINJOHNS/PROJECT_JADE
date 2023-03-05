@@ -1,6 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uninet/presentation/profile/posts.dart';
 import 'package:uninet/presentation/profile/updates.dart';
 
@@ -15,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back_outlined),
+          icon: Icon(CupertinoIcons.arrow_left),
           // backgroundColor: Color.fromARGB(20, 131, 201, 194),
           // hoverColor: Color.fromARGB(20, 131, 201, 194),
           //hoverElevation: 0,
@@ -39,13 +38,13 @@ class ProfileScreen extends StatelessWidget {
                 Text(
                   "Alvin Johns",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      fontFamily: 'JetBrainsMono'),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
                 ),
                 Text(
                   "Flutter Dev",
-                  style: TextStyle(fontSize: 25, fontFamily: 'JetBrainsMono'),
+                  style: TextStyle(fontSize: 25),
                 )
               ],
             )
@@ -63,12 +62,10 @@ class ProfileScreen extends StatelessWidget {
                 children: const [
                   Text(
                     "Cheif Flutter developer at ",
-                    style: TextStyle(fontFamily: 'JetBrainsMono'),
                   ),
                   Text(
                     "PRODDEC CEC",
                     style: TextStyle(
-                      fontFamily: 'JetBrainsMono',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -78,12 +75,10 @@ class ProfileScreen extends StatelessWidget {
                 children: const [
                   Text(
                     "intern at ",
-                    style: TextStyle(fontFamily: 'JetBrainsMono'),
                   ),
                   Text(
                     "Tinkerhub",
                     style: TextStyle(
-                      fontFamily: 'JetBrainsMono',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -95,7 +90,6 @@ class ProfileScreen extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "Connect",
-                      style: TextStyle(fontFamily: 'JetBrainsMono'),
                     ),
                   )),
               SizedBox(
